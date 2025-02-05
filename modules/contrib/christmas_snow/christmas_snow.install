@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Christmas snow module.
+ */
+
+/**
+ * Reset module config.
+ */
+function christmas_snow_update_8100(&$sandbox) {
+  \Drupal::configFactory()->getEditable('christmas_snow.settings')->delete();
+}
+
+/**
+ * Show message about resetting settings.
+ */
+function christmas_snow_update_8101(&$sandbox) {
+  return 'This update reset some settings. Please visit the christmas snow settings page.';
+}

@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Primarily Drupal hooks to manipulate and display read time values.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\FieldableEntityInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function estimated_read_time_theme($existing, $type, $theme, $path) {
+  return [
+    'estimated_read_time_text' => [
+      'variables' => [
+        'formatted_read_time' => NULL,
+        'minutes' => NULL,
+        'seconds' => NULL,
+        'tokenized_string' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function estimated_read_time_entity_presave(EntityInterface $entity) {
+
+  if (!$entity instanceof FieldableEntityInterface) {
+    return;
+  }
+
+  /** @var \Drupal\estimated_read_time\Service\EntityReadTimeEstimator $estimator */
+  $estimator = \Drupal::service('estimated_read_time.entity_read_time_estimator');
+  $estimator->setEstimatedReadTime($entity);
+}

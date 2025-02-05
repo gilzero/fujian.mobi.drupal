@@ -1,0 +1,10 @@
+name: Custom Add Content Page
+description: Allows you to customize the "add content" page by converting it to a menu named "Custom add content page".
+type: module
+configure: custom_add_content.config
+core_version_requirement: ^8.7.7 || ^9 || ^10 || ^11
+
+# Information added by Drupal.org packaging script on 2024-08-31
+version: '2.1.1'
+project: 'custom_add_content'
+datestamp: 1725117629

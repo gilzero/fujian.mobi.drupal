@@ -1,0 +1,8 @@
+better_permissions_page:
+  version: VERSION
+  js:
+    js/better_permissions_page.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - user/drupal.user.admin

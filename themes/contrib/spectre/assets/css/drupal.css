@@ -1,0 +1,51 @@
+/**
+ Theme specific colors.
+ */
+.spectre-branding {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0;
+}
+
+.spectre-branding .logo-link {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+table.table-striped tbody tr:nth-of-type(odd) {
+  background: #f7f8f9;
+}
+
+table tbody tr.active,
+table.table-striped tbody tr.active {
+  background: #eef0f3;
+}
+
+table.table-hover tbody tr:hover {
+  background: #eef0f3;
+}
+
+table.table-scroll {
+  display: block;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  white-space: nowrap;
+}
+
+table td,
+table th {
+  padding: 0.6rem 0.4rem;
+  border-bottom: 0.05rem solid #dadee4;
+}
+
+table th {
+  border-bottom-width: 0.1rem;
+}

@@ -1,0 +1,10 @@
+name: Better Formats
+type: module
+description: 'Enhances the core input format system by managing input format defaults and settings.'
+core_version_requirement: ^9.4 || ^10 || ^11
+configure: better_formats.settings
+
+# Information added by Drupal.org packaging script on 2024-07-08
+version: '8.x-1.0-beta3'
+project: 'better_formats'
+datestamp: 1720425830

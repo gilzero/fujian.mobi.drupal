@@ -1,0 +1,10 @@
+name: 'Christmas Snow'
+description:  'Add christmas snow to your site.'
+type: module
+configure: christmas_snow.settings
+core_version_requirement: ^8 || ^9 || ^10 || ^11
+
+# Information added by Drupal.org packaging script on 2024-11-21
+version: '11.0.1'
+project: 'christmas_snow'
+datestamp: 1732196356

@@ -1,0 +1,7 @@
+custom_add_content.config:
+  path: 'admin/config/user-interface/custom_node_add'
+  defaults:
+    _form: 'Drupal\custom_add_content\Form\AddContentConfigurationForm'
+    _title: 'Custom Add Content'
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,9 @@
+name: 'Raven module tests'
+type: module
+description: 'Support module for Raven tests.'
+package: Testing
+
+# Information added by Drupal.org packaging script on 2025-01-03
+version: '6.0.14'
+project: 'raven'
+datestamp: 1735930904

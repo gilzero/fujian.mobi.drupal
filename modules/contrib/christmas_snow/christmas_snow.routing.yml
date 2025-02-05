@@ -1,0 +1,15 @@
+christmas_snow.admin:
+  path: '/admin/config/christmas_snow'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Christmas snow configuration'
+  requirements:
+    _permission: 'administer site configuration'
+
+christmas_snow.settings:
+  path: '/admin/config/christmas_snow/cs_settings'
+  defaults:
+    _form: '\Drupal\christmas_snow\Form\ChristmasSnowSettingsForm'
+    _title: 'Configuration form'
+  requirements:
+    _permission: 'administer site configuration'

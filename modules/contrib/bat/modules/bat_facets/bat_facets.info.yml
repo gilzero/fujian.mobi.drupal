@@ -1,0 +1,14 @@
+name: BAT Facets
+type: module
+description: Facet API facets for BAT.
+core_version_requirement: ^9.4 || ^10.2 || ^11
+package: bat
+dependencies:
+  - bat:bat_event
+  - search_api:search_api
+  - facets:facets
+
+# Information added by Drupal.org packaging script on 2024-11-05
+version: '11.0.0'
+project: 'bat'
+datestamp: 1730801017

@@ -1,0 +1,15 @@
+name: BAT Fullcalendar
+type: module
+description: Provides a generalized API for manipulating FullCalendar widgets for BAT
+core_version_requirement: ^9.4 || ^10.2 || ^11
+package: bat
+dependencies:
+  # - bat_api
+  # - bat:bat_event
+  - fullcalendar_library:fullcalendar_library
+
+
+# Information added by Drupal.org packaging script on 2024-11-05
+version: '11.0.0'
+project: 'bat'
+datestamp: 1730801017

@@ -1,0 +1,10 @@
+name: Better permissions page
+type: module
+description: Provides a better core administration permissions page.
+core_version_requirement: ^9 || ^10 || ^11
+package: Administration
+
+# Information added by Drupal.org packaging script on 2024-06-24
+version: '1.0.3'
+project: 'better_permissions_page'
+datestamp: 1719220427

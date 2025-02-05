@@ -1,0 +1,24 @@
+.shift-right {
+  float: right;
+}
+.mo_rest_api_highlight_background_note_1 {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  padding: 0.55em;
+  width: 97%;
+}
+
+.td-class {
+  padding: 0%;
+}
+
+#module_background {
+  background-color: black;
+}
+@media (prefers-color-scheme: dark) {
+  .gin--dark-mode .mo_rest_api_highlight_background_note_1 {
+    background-color: #2c2c2c;
+    color: white;
+    border: 1px solid #76777b;
+  }
+}

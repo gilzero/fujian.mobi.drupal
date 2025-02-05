@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Custom breadcrumbs install.
+ */
+
+/**
+ * Set default values for site_wide param.
+ */
+function custom_breadcrumbs_update_10001(&$sandbox) {
+  \Drupal::configFactory()
+    ->getEditable('custom_breadcrumbs.settings')
+    ->set('site_wide', FALSE)
+    ->save();
+}

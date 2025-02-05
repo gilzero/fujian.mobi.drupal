@@ -1,0 +1,7 @@
+set_and_forget: true
+limit_field_values: false
+hide_filter: 10
+queue_notifications: 50
+html_email: false
+sync_registration_settings: true
+sync_registration_settings_all_fields: false

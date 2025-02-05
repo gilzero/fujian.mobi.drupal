@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Main file for the christmas snow module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function christmas_snow_help($route_name, RouteMatchInterface $route_match) {
+  return '';
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function christmas_snow_page_attachments(array &$attachments) {
+  $route = \Drupal::routeMatch()->getRouteObject();
+  $is_admin = \Drupal::service('router.admin_context')->isAdminRoute($route);
+  if (!$is_admin) {
+    $config = \Drupal::config('christmas_snow.settings');
+    $snow = $config->get('christmas_snow');
+    $minified = $config->get('christmas_snow_minified');
+    if ($snow) {
+      if ($minified) {
+        $snowLibrary = 'christmas_snow/snowstorm-min';
+      }
+      else {
+        $snowLibrary = 'christmas_snow/snowstorm';
+      }
+
+      $attachments['#attached']['library'][] = 'christmas_snow/snow';
+      $attachments['#attached']['library'][] = $snowLibrary;
+      $attachments['#attached']['drupalSettings']['christmas_snow']['flakesMaxActive'] = $config->get('christmas_snow_flakes_max');
+      $attachments['#attached']['drupalSettings']['christmas_snow']['snowcolor'] = $config->get('christmas_snow_snowcolor');
+      $attachments['#attached']['drupalSettings']['christmas_snow']['flakeBottom'] = $config->get('christmas_snow_flake_bottom');
+      $attachments['#attached']['drupalSettings']['christmas_snow']['followMouse'] = $config->get('christmas_snow_follow_mouse');
+      $attachments['#attached']['drupalSettings']['christmas_snow']['useMeltEffect'] = $config->get('christmas_snow_melt');
+      $attachments['#attached']['drupalSettings']['christmas_snow']['snowStick'] = $config->get('christmas_snow_stick');
+      $attachments['#attached']['drupalSettings']['christmas_snow']['useTwinkleEffect'] = $config->get('christmas_snow_twinkle');
+      $attachments['#attached']['drupalSettings']['christmas_snow']['snowCharacter'] = $config->get('christmas_snow_character');
+      $attachments['#attached']['drupalSettings']['christmas_snow']['animationInterval'] = $config->get('christmas_snow_animation_int');
+    }
+  }
+  // Adding cache tag as christmas_snow.settings.
+  $attachments['#cache']['tags'][] = 'config:christmas_snow.settings';
+}

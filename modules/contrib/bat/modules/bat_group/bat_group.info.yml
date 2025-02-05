@@ -1,0 +1,12 @@
+name: BAT Group
+type: module
+description: Group features for BAT.
+core_version_requirement: ^9.4 || ^10.2 || ^11
+package: bat
+dependencies:
+  - bat:bat_unit
+
+# Information added by Drupal.org packaging script on 2024-11-05
+version: '11.0.0'
+project: 'bat'
+datestamp: 1730801017

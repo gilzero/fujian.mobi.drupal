@@ -1,0 +1,19 @@
+name: Spectre CSS CDN subtheme
+type: theme
+description: 'Built to use Spectre CSS. A Lightweight, Responsive and Modern CSS Framework'
+package: Core
+core_version_requirement: ^9 || ^10
+
+base theme: spectre
+
+regions:
+  header: Header
+  content: Content
+  footer: Footer
+  highlighted: Highlighted
+  navbar: Navbar menu
+
+# Information added by Drupal.org packaging script on 2024-11-06
+version: '2.0.1'
+project: 'spectre'
+datestamp: 1730891712

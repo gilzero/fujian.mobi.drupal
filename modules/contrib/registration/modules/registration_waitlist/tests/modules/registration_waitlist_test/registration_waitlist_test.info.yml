@@ -1,0 +1,11 @@
+name: Registration Wait List Test
+type: module
+description: 'Test module for Registration Wait List.'
+package: Testing
+dependencies:
+  - registration:registration_waitlist
+
+# Information added by Drupal.org packaging script on 2024-11-10
+version: '3.3.1'
+project: 'registration'
+datestamp: 1731254651

@@ -1,0 +1,26 @@
+field.field_settings.estimated_read_time:
+  type: mapping
+  label: 'Estimated read time field settings'
+  mapping:
+    view_mode:
+      type: string
+      label: 'View mode'
+    words_per_minute:
+      type: integer
+      label: 'Words per minute'
+
+field.formatter.settings.estimated_read_time_text:
+  type: mapping
+  label: 'Estimated read time text formatter'
+  mapping:
+    tokenized_string:
+      type: string
+      label: 'Tokenized string'
+
+field.widget.settings.estimated_read_time_default:
+  type: mapping
+  label: 'Estimated read time field widget'
+  mapping:
+    sidebar:
+      type: boolean
+      label: 'Place field in sidebar'

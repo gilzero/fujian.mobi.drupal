@@ -1,0 +1,13 @@
+services:
+  estimated_read_time.entity_read_time_estimator:
+    class: Drupal\estimated_read_time\Service\EntityReadTimeEstimator
+    arguments: [
+      '@config.factory',
+      '@entity_type.manager',
+      '@estimated_read_time.read_time_adapter',
+      '@renderer',
+      '@theme.initialization',
+      '@theme.manager',
+    ]
+  estimated_read_time.read_time_adapter:
+    class: Drupal\estimated_read_time\Service\ReadTimeAdapter

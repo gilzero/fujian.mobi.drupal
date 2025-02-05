@@ -1,0 +1,9 @@
+name: "Estimated Read Time"
+description: Provides a field that estimates the read time of an entity.
+type: module
+core_version_requirement: ^10.3 || ^11
+
+# Information added by Drupal.org packaging script on 2024-10-28
+version: '1.2.0'
+project: 'estimated_read_time'
+datestamp: 1730118040

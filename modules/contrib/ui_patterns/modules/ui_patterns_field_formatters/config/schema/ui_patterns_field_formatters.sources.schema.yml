@@ -1,0 +1,10 @@
+ui_patterns_source.field_formatter:*:*:*:
+  type: mapping
+  label: 'Source: field_formatter'
+  mapping:
+    type:
+      type: string
+      label: 'Field formatter type'
+    settings:
+      type: field.formatter.settings.[%parent.type]
+      label: 'Field formatter settings'

@@ -1,0 +1,53 @@
+Custom Add Content 2.1.1, 2024-08-31
+------------------------------------
+#3471400: Enable gitlab CI and fix pipeline errors
+
+Custom Add Content 2.1.0, 2024-08-17
+------------------------------------
+#3381183: All users, including superuser / admin, get access denied on
+/custom_node_add
+#3429704: Drupal 11 Compatibility
+
+Custom Add Content 2.0.0, 2022-08-24
+------------------------------------
+Drupal 10 Compatibility
+
+Custom Add Content 8.x-1.2, 2020-05-12
+--------------------------------------
+#3135386: Deletion of content type is blocked by the error if menu link for
+it doesn't exist in this module's menu.
+
+Custom Add Content 8.x-1.1, 2020-04-14
+--------------------------------------
+Full compatibility with Drupal 9
+Requires Drupal 8.7.7 or newer
+
+Custom Add Content 8.x-1.0, 2019-12-23
+--------------------------------------
+Major improvements to README file
+Capitalize module name per Drupal standards
+
+Custom Add Content 8.x-1.0-rc2, 2018-09-25
+------------------------------------------
+Fixed code to comply with Drupal standards: use short array syntax and fix
+use statement
+Small improvement to README file
+
+Custom Add Content 8.x-1.0-rc1, 2018-09-24
+------------------------------------------
+Improved README file
+Fixed CHANGELOG
+
+Custom Add Content 8.x-1.0-beta3, 2017-11-14
+--------------------------------------------
+Suport menu entries with no link
+
+Custom Add Content 8.x-1.0-beta2, 2017-01-20
+--------------------------------------------
+Issue #2854192 by Znak
+Issue #2854194 by Znak
+Issue #2852119 by Znak
+
+Custom Add Content 8.x-1.0-beta1, 2017-01-19
+--------------------------------------------
+First beta version of module.

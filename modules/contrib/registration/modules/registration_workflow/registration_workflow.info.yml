@@ -1,0 +1,12 @@
+name: Registration Workflow
+type: module
+description: 'Provides permissions and operations for registration workflow transitions.'
+package: Registration
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - registration:registration
+
+# Information added by Drupal.org packaging script on 2024-11-10
+version: '3.3.1'
+project: 'registration'
+datestamp: 1731254651

@@ -1,0 +1,21 @@
+{
+    "name": "drupal/estimated_read_time",
+    "description": "Creates a field that estimates the read time of an entity.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://drupal.org/project/estimated_read_time",
+    "authors": [
+        {
+            "name": "Michael Taltavull",
+            "homepage": "https://www.drupal.org/u/mtalt"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/estimated_read_time",
+        "source": "https://git.drupalcode.org/project/estimated_read_time"
+    },
+    "require": {
+        "drupal/core": "^10.3 || ^11",
+        "mtownsend/read-time": "^2"
+    }
+}

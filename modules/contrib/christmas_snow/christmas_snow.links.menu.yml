@@ -1,0 +1,11 @@
+christmas_snow.admin:
+    title: Christmas snow
+    parent: system.admin_config
+    route_name: christmas_snow.admin
+    weight: 70
+
+christmas_snow.settings:
+    title: Configuration form
+    parent: christmas_snow.admin
+    route_name: christmas_snow.settings
+    weight: 10

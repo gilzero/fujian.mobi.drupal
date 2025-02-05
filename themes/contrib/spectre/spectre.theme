@@ -1,0 +1,217 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the spectre theme.
+ */
+
+use Drupal\block\Entity\Block;
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function spectre_page_attachments_alter(array &$page) {
+  // Force IE to use Chrome Frame if installed.
+  $page['#attached']['html_head'][] = [
+    [
+      '#type' => 'html_tag',
+      '#tag' => 'meta',
+      '#attributes' => [
+        'http-equiv' => 'X-UA-Compatible',
+        'content' => 'IE=edge,chrome=1',
+      ],
+    ],
+    'chrome_frame',
+  ];
+
+  // Remove image toolbar in IE.
+  $page['#attached']['html_head'][] = [
+    [
+      '#type' => 'html_tag',
+      '#tag' => 'meta',
+      '#attributes' => [
+        'http-equiv' => 'ImageToolbar',
+        'content' => 'false',
+      ],
+    ],
+    'ie_image_toolbar',
+  ];
+
+  // Alter viewport.
+  $page['#attached']['html_head'][] = [
+    [
+      '#type' => 'html_tag',
+      '#tag' => 'meta',
+      '#attributes' => [
+        'name' => 'viewport',
+        'content' => 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no',
+      ],
+    ],
+    'viewport',
+  ];
+}
+
+/**
+ * Implements theme_preprocess_container().
+ */
+function spectre_preprocess_container(&$variables) {
+  $variables['attributes']['class'][] = 'form-group';
+}
+
+/**
+ * Implements template_preprocess_form_element().
+ */
+function spectre_preprocess_form_element(&$variables) {
+
+  // Push form element type to the label element.
+  $form_element_type = $variables['element']['#type'];
+  $variables['label']['#field_type'] = $form_element_type;
+
+  // Render the form element inside the label for checkbox and radio.
+  if (in_array($form_element_type, ['checkbox', 'radio'])) {
+    $variables['label']['#children'] = $variables['children'] . '<i class="form-icon"></i>';
+    unset($variables['children']);
+
+    // Specific class for radio and checkbox items.
+    $variables['label']['#attributes']['class'][] = 'form-' . $variables['element']['#type'];
+  }
+
+  else {
+    $variables['label']['#attributes']['class'][] = 'form-label';
+  }
+}
+
+/**
+ * Implements template_preprocess_input().
+ */
+function spectre_preprocess_input(&$variables) {
+  $element = $variables['element'];
+
+  // Specifics per input types.
+  switch ($element['#type']) {
+    case 'checkbox':
+    case 'radio':
+      // Skip for now.
+      break;
+
+    case 'submit':
+      $variables['attributes']['class'][] = 'btn';
+      if (theme_get_setting('button.size') !== 'default') {
+        $variables['attributes']['class'][] = theme_get_setting('button.size');
+      }
+      if (isset($element['#button_type']) && $element['#button_type'] === 'primary') {
+        $variables['attributes']['class'][] = 'btn-primary';
+      }
+      break;
+
+    case 'select':
+      $variables['attributes']['class'][] = 'form-select';
+      break;
+
+    default:
+      $variables['attributes']['class'][] = 'form-input';
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_textarea().
+ */
+function spectre_preprocess_textarea(array &$variables) {
+  $variables['attributes']['class'][] = 'form-input';
+}
+
+/**
+ * Implements hook_preprocess_image().
+ */
+function spectre_preprocess_image(array &$variables) {
+  $variables['attributes']['class'][] = 'img-responsive';
+}
+
+/**
+ * Implements template_preprocess_menu_local_task().
+ */
+function spectre_preprocess_menu_local_task(&$variables) {
+  $variables['attributes']['class'][] = 'tab-item';
+
+  // If is active add class.
+  if (!empty($variables['element']['#active'])) {
+    $variables['attributes']['class'][] = 'active';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function spectre_preprocess_block(&$variables) {
+
+  // Pass block region value to content so this can be used in
+  // spectre_theme_suggestions_menu_alter.
+  if (isset($variables['elements']['#id'])) {
+    if ($block = Block::load($variables['elements']['#id'])) {
+      $variables['content']['#attributes']['region'] = $block->getRegion();
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function spectre_theme_suggestions_menu_alter(&$suggestions, array $variables) {
+  // Provide menu template suggestion by region block placement.
+  if (isset($variables['attributes']['region'])) {
+    $suggestions[] = 'menu__' . $variables['attributes']['region'] . '__spectre';
+  }
+}
+
+/**
+ * Implements template_preprocess_table().
+ */
+function spectre_preprocess_table(&$variables) {
+  $variables['attributes']['class'][] = 'table';
+  if (theme_get_setting('table.hover')) {
+    $variables['attributes']['class'][] = 'table-hover';
+  }
+  if (theme_get_setting('table.striped')) {
+    $variables['attributes']['class'][] = 'table-striped';
+  }
+  if (theme_get_setting('table.scroll')) {
+    $variables['attributes']['class'][] = 'table-scroll';
+  }
+}
+
+/**
+ * Implements template_preprocess_views_view_table().
+ */
+function spectre_preprocess_views_view_table(&$variables) {
+  $variables['spectre_hover'] = theme_get_setting('table.hover');
+  $variables['spectre_striped'] = theme_get_setting('table.striped');
+  $variables['spectre_scroll'] = theme_get_setting('table.scroll');
+}
+
+/**
+ * Implements hook_preprocess_label().
+ */
+function spectre_preprocess_form_element_label(&$variables) {
+  if (theme_get_setting('label.enable')) {
+    $variables['attributes']['class'][] = 'label';
+    if (theme_get_setting('label.style')) {
+      $variables['attributes']['class'][] = 'label-rounded';
+    }
+  }
+}
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function spectre_library_info_alter(&$libraries, $extension) {
+  // If we use CDN alter links according to version.
+  if ($extension === 'spectre' && isset($libraries['spectre'])) {
+    $version = theme_get_setting('library.version');
+    $libraries['spectre']['css']['base'] = [
+      sprintf('https://cdnjs.cloudflare.com/ajax/libs/spectre.css/%s/spectre.min.css', $version) => ['external' => TRUE],
+      sprintf('https://cdnjs.cloudflare.com/ajax/libs/spectre.css/%s/spectre-exp.min.css', $version) => ['external' => TRUE],
+      sprintf('https://cdnjs.cloudflare.com/ajax/libs/spectre.css/%s/spectre-icons.min.css', $version) => ['external' => TRUE],
+    ];
+  }
+}

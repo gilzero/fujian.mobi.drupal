@@ -1,0 +1,5 @@
+services:
+  better_permissions_page.route_subscriber:
+    class: Drupal\better_permissions_page\Routing\BetterPermissionsPageRouteSubscriber
+    tags:
+      - { name: event_subscriber }
